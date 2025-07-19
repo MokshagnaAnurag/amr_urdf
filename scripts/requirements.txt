@@ -1,0 +1,20 @@
+# Dependencies for STL to Images Converter
+# Compatible with Fusion 360 and SolidWorks STL exports
+
+# Core libraries
+numpy>=1.21.0
+matplotlib>=3.5.0
+
+# 3D mesh processing (optional but recommended)
+trimesh>=3.12.0
+
+# Image processing for GIF creation
+Pillow>=8.0.0
+
+# Additional mesh processing libraries (optional)
+# meshio>=5.0.0
+# open3d>=0.15.0
+
+# For advanced visualization (optional)
+# vtk>=9.0.0
+# pyvista>=0.35.0

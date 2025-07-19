@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="amr">
+
+  <xacro:include filename="laser.gazebo.xacro"/>
+
+  
+  <link name="world"></link>
+
+  <joint name="virtual_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="-1.57 0 0"/>
+  </joint>
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0880454917418126 0.137802168373861 0.102474991306306"
+        rpy="0 0 0" />
+      <mass
+        value="0.988483105484087" />
+      <inertia
+        ixx="0.00571297289275295"
+        ixy="1.6343542369988E-09"
+        ixz="-7.31884647297647E-14"
+        iyy="0.0024693927684776"
+        iyz="7.81445918076223E-05"
+        izz="0.0080726172730387" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="LW_1">
+    <inertial>
+      <origin
+        xyz="1.73313500883218E-05 2.30082235947171E-05 -0.016595198637863"
+        rpy="0 0 0" />
+      <mass
+        value="0.052312226035486" />
+      <inertia
+        ixx="5.5554980783234E-06"
+        ixy="-1.64316630827955E-15"
+        ixz="-1.24880438189737E-13"
+        iyy="5.55549791070024E-06"
+        iyz="4.32526923030284E-14"
+        izz="6.55110379568796E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/LW_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/LW_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LWJ_1"
+    type="revolute">
+    <origin
+      xyz="-0.020189 -0.040268 0.23533"
+      rpy="-1.5708 0.27727 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="LW_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="RW_1">
+    <inertial>
+      <origin
+        xyz="-0.0117547453874102 0.0113422205742806 0.002929409626209"
+        rpy="0 0 0" />
+      <mass
+        value="0.0523122259257065" />
+      <inertia
+        ixx="6.05330094697864E-06"
+        ixy="-4.81943803661672E-07"
+        ixz="-1.24651071170121E-07"
+        iyy="6.02208794436903E-06"
+        iyz="1.20679796440382E-07"
+        izz="5.58671086415591E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/RW_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/RW_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJW_1"
+    type="revolute">
+    <origin
+      xyz="0.19628 -0.040268 0.23533"
+      rpy="-1.1012 0.64351 -2.6549" />
+    <parent
+      link="base_link" />
+    <child
+      link="RW_1" />
+    <axis
+      xyz="0.70711 -0.68458 -0.17706" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="LW_2">
+    <inertial>
+      <origin
+        xyz="-0.0117374288507964 -0.00928901019440675 -0.00716578679144122"
+        rpy="0 0 0" />
+      <mass
+        value="0.0523122258667619" />
+      <inertia
+        ixx="6.05330076242561E-06"
+        ixy="3.94889999178446E-07"
+        ixz="3.03100012844739E-07"
+        iyy="5.86875065570583E-06"
+        iyz="2.40438951776932E-07"
+        izz="5.74004832899217E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/LW_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/LW_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LWJ_2"
+    type="revolute">
+    <origin
+      xyz="0.19228 -0.040268 0.045327"
+      rpy="-0.65078 0.0038605 2.3562" />
+    <parent
+      link="base_link" />
+    <child
+      link="LW_2" />
+    <axis
+      xyz="0.70711 0.56092 0.43054" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="RW_2">
+    <inertial>
+      <origin
+        xyz="-0.011731726116973 -0.0111290775188719 -0.00372983692635658"
+        rpy="0 0 0" />
+      <mass
+        value="0.0523122260392415" />
+      <inertia
+        ixx="6.05330101473928E-06"
+        ixy="4.71614610059513E-07"
+        ixz="1.59334198597905E-07"
+        iyy="6.00230184457372E-06"
+        iyz="1.50952044110783E-07"
+        izz="5.60649692667404E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/RW_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/RW_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RWJ_2"
+    type="revolute">
+    <origin
+      xyz="-0.020189 -0.040268 0.045327"
+      rpy="2.4197 0.36821 0.7107" />
+    <parent
+      link="base_link" />
+    <child
+      link="RW_2" />
+    <axis
+      xyz="0.70711 0.66991 0.22633" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="Lidar">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-16 5.55111512312578E-16 0.00999999999999998"
+        rpy="0 0 0" />
+      <mass
+        value="0.07696902001295" />
+      <inertia
+        ixx="2.61373963793976E-05"
+        ixy="8.470329472543E-22"
+        ixz="-3.92570577789169E-22"
+        iyy="2.61373963793976E-05"
+        iyz="-7.29723696241856E-23"
+        izz="4.71435247579319E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/Lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr/meshes/Lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Lidar_joint"
+    type="revolute">
+    <origin
+      xyz="0.088045 -0.20927 0.040327"
+      rpy="1.5708 -0.60161 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Lidar" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <xacro:laser/> 
+</robot>
